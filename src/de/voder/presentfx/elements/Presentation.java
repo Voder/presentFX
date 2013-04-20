@@ -6,10 +6,13 @@ package de.voder.presentfx.elements;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javafx.event.EventHandler;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Pane;
 import javafx.stage.Screen;
 
 /**
@@ -17,9 +20,9 @@ import javafx.stage.Screen;
  * @author Volker Aufschild <mail@volker-aufschild.de>
  */
 public class Presentation extends Group {
-    private List<Slide> slides;
+    private List<Object> slides;
     private int index;
-    private Slide current;
+    private Pane current;
     public EventHandler<KeyEvent> keyEventHandler;
  
     public Presentation() {
@@ -35,12 +38,12 @@ public class Presentation extends Group {
         };
     }
  
-    public void addSlide(Slide slide) {
-        addSlide(slides.size(), slide);
+    public void addSlide(Object object) {
+        addSlide(slides.size(), object);
     }
  
-    public void addSlide(int index, Slide slide) {
-        slides.add(index, slide);
+    public void addSlide(int index, Object object) {
+        slides.add(index, object);
     }
  
     public void previousSlidePlease() {
@@ -62,11 +65,11 @@ public class Presentation extends Group {
             getChildren().remove(current);
             current.removeEventHandler(KeyEvent.KEY_PRESSED, keyEventHandler);
         }
-        current = slides.get(index);
+        current = (Pane) slides.get(index);
         current.addEventHandler(KeyEvent.KEY_PRESSED, keyEventHandler);
  
         scaleToFit();
-        getChildren().add(slides.get(index));
+        getChildren().add((Node) slides.get(index));
         current.requestFocus();
     }
  

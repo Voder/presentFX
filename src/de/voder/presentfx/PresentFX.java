@@ -4,13 +4,13 @@
  */
 package de.voder.presentfx;
 
-import de.voder.presentfx.elements.Presentation;
-import de.voder.presentfx.elements.Slide;
-import java.util.List;
+import java.io.IOException;
+
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.stage.Screen;
 import javafx.stage.Stage;
+import de.voder.presentfx.elements.Presentation;
 
 /**
  *
@@ -19,10 +19,10 @@ import javafx.stage.Stage;
 public class PresentFX extends Application {
     
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage primaryStage) throws IOException {
         final Presentation presentation = new Presentation();
-        presentation.addSlide(new Slide("slide1.fxml"));
-        presentation.addSlide(new Slide("slide2.fxml"));
+        presentation.addSlide(FXMLLoader.load(getClass().getResource("slide1.fxml")));
+        presentation.addSlide(FXMLLoader.load(getClass().getResource("slide2.fxml")));
  
         final Scene scene = new Scene(presentation);
         primaryStage.setScene(scene);

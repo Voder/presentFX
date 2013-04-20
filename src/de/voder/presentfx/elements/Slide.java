@@ -21,8 +21,8 @@ public class Slide extends AnchorPane implements Initializable {
     public Slide(String slide) {
 
         try {
-            Parent root = FXMLLoader.load(getClass().getResource(slide));
-            this.getChildren().add(root);
+            AnchorPane root = FXMLLoader.load(getClass().getResource(slide));
+//            this.add(root);
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
