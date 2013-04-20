@@ -2,40 +2,33 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package presentfx;
+package de.voder.presentfx;
 
+import de.voder.presentfx.elements.Presentation;
+import de.voder.presentfx.elements.Slide;
+import java.util.List;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 /**
  *
- * @author volker
+ * @author Volker Aufschild <mail@volker-aufschild.de>
  */
 public class PresentFX extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-        Button btn = new Button();
-        btn.setText("Say 'Hello World'");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Hello World!");
-            }
-        });
-        
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
-        
-        Scene scene = new Scene(root, 300, 250);
-        
-        primaryStage.setTitle("Hello World!");
+        final Presentation presentation = new Presentation();
+        presentation.addSlide(new Slide("slide1.fxml"));
+        presentation.addSlide(new Slide("slide2.fxml"));
+ 
+        final Scene scene = new Scene(presentation);
         primaryStage.setScene(scene);
+        primaryStage.setFullScreen(true);
+        presentation.start();
+        
         primaryStage.show();
     }
 

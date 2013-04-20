@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml" >
+  <children>
+    <Label layoutX="78.0" layoutY="157.0" text="presentFX">
+      <font>
+        <Font name="Apple LiGothic Medium" size="86.0" />
+      </font>
+    </Label>
+    <Label layoutX="186.0" layoutY="243.0" text="presentations with JavaFX">
+      <font>
+        <Font name="Apple LiGothic Medium" size="20.0" />
+      </font>
+    </Label>
+    <Rectangle fx:id="logo_rect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="86.0" layoutX="372.0" layoutY="114.0" stroke="BLACK" strokeType="INSIDE" width="89.0" />
+    <CubicCurve fx:id="logo_wave" controlX1="-50.0" controlX2="50.0" controlY1="-100.0" controlY2="100.0" endX="150.0" fill="#1e90ff00" layoutX="337.0" layoutY="157.0" startX="-150.0" stroke="BLACK" />
+    <Circle fx:id="logo_circle" fill="#ff6666" layoutX="252.0" layoutY="117.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+  </children>
+</AnchorPane>
